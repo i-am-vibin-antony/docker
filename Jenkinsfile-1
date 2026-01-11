@@ -1,29 +1,23 @@
 pipeline {
     agent any
-
-    environment {
-        GIT_REPO = 'https://github.com/i-am-vibin-antony/docker.git'
-        GIT_BRANCH = 'main'
-        DOCKER_REGISTRY = 'vibinanto22'
-        IMAGE_NAME = 'hello-world-1-image'
-        IMAGE_TAG = '1.0'
-        DOCKERFILE_PATH = 'Dockerfile'
-    }
-
     stages {
+     // adasfddded
         stage('Checkout the Git repository') {
             steps {
-                git branch: "${GIT_BRANCH}", url: "${GIT_REPO}"
+                git branch: 'main', url: 'https://github.com/i-am-vibin-antony/docker.git'
             }
         }
-
-        stage('Build Docker Image') {
+        stage('Build Docker image') {
             steps {
                 script {
-                    def dockerImage = docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}", "-f ${DOCKERFILE_PATH} .")
+                    def dockerfile = 'Dockerfile'
+                    def registry = 'vibinantony22'
+                    def imageName = 'hello-world-1-image'
+                    def imageTag = '1.0'
+                    def dockerImage = docker.build("${registry}/${imageName}:${imageTag}", "-f ${dockerfile} .")
                     dockerImage.push()
                 }
             }
         }
-     }
+    }
 }
