@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/i-am-vibin-antony/docker.git'
         GIT_BRANCH = 'main'
-        DOCKER_REGISTRY = 'docker.hub.io'
+        DOCKER_REGISTRY = 'vibinanto22'
         IMAGE_NAME = 'hello-world-1-image'
         IMAGE_TAG = '1.0'
         DOCKERFILE_PATH = 'Dockerfile'
